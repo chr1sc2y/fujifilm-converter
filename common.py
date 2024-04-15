@@ -1,12 +1,12 @@
 import os
 
 camera_info = {
-    "GFX100II": {
+    "fuji": {
         "make": "FUJIFILM",
         "model": "GFX100II",
         "camera": "Fujifilm GFX 100 II",
     },
-    "A7C2": {"make": "SONY", "model": "ILCE-7CM2", "camera": "SONY ILCE-7CM2"},
+    "sony": {"make": "SONY", "model": "ILCE-7CM2", "camera": "SONY ILCE-7CM2"},
 }
 
 
@@ -23,10 +23,10 @@ def archive_originals(dir, extension):
             print(f"Renamed: {original_path} -> {archive_path}")
 
 
-def convert(dir, camera_name, extension):
-    make = camera_info[camera_name]["make"]
-    model = camera_info[camera_name]["model"]
-    camera = camera_info[camera_name]["camera"]
+def convert(dir, camera_preset, extension):
+    make = camera_info[camera_preset]["make"]
+    model = camera_info[camera_preset]["model"]
+    camera = camera_info[camera_preset]["camera"]
     command = f'exiftool -make="{make}" -model="{model}" -uniquecameramodel="{camera}" '
     command += dir
     print(command)

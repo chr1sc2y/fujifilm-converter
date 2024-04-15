@@ -1,9 +1,9 @@
 import os
 from common import convert
 
-camera_name = "GFX100II"
+camera_preset = "fuji"
 extension = "dng"
 
 if __name__ == "__main__":
     dir = input("Please input the dir: ")
-    convert(dir, camera_name, extension)
+    convert(dir, camera_preset, extension)
