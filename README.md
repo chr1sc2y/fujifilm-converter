@@ -38,10 +38,10 @@ exiftool -make="FUJIFILM" -model="GFX100S" -uniquecameramodel="Fujifilm GFX 100S
    32 image files updated
 ```
 
-在刚才的目录里会得到一些以 `.dng_original` 结尾的 dng 文件
+在刚才的目录里会得到一些新的 dng 文件, 原始文件被放进了 archived 目录
 
 ![3](./resources/3.png)
 
-4. 把这些文件拖进 lightroom, 就可以选出富士所有的 19 种胶片模拟了
+4. 把这些新的文件拖进 lightroom, 就可以选出富士所有的 19 种胶片模拟了
 
 ![4](./resources/4.png)

@@ -36,7 +36,7 @@ exiftool -make="FUJIFILM" -model="GFX100S" -uniquecameramodel="Fujifilm GFX 100S
    32 image files updated
 ```
 
-DNG files with the suffix `.dng_original` will be created in the directory you specified.
+You will get some new dng files in the same directory, and the original files will be moved to a directory `archived`.
 
 ![3](./resources/3.png)
 
