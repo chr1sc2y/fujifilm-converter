@@ -42,6 +42,6 @@ exiftool -make="FUJIFILM" -model="GFX100S" -uniquecameramodel="Fujifilm GFX 100S
 
 ![3](./resources/3.png)
 
-4. 把这些新的文件拖进 lightroom, 就可以选出富士所有的 19 种胶片模拟了
+4. 把这些新的文件拖进 lightroom, 就可以选出富士所有的 20 种胶片模拟了
 
 ![4](./resources/4.png)
