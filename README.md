@@ -1,3 +1,5 @@
+[English Version](./README-EN.md)
+
 # Fujifilm Converter
 
 这个程序可以把任意相机拍出来的 raw 格式照片通过修改 exif 信息的方式模拟成富士相机拍的, 从而在 lightroom 里面选出富士的胶片模拟
