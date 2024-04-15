@@ -31,7 +31,7 @@
 3. 在 terminal 里面运行 `python3 main.py`, 然后输入刚才转换好的 dng 文件所在的目录, 输出如下
 
 ```sh
-➜  exif-convert python3 main.py 
+➜  python3 main.py 
 Please input the file: ./test
 exiftool -make="FUJIFILM" -model="GFX100S" -uniquecameramodel="Fujifilm GFX 100S" ./test
     1 directories scanned
