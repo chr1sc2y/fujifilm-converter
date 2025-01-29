@@ -7,6 +7,12 @@ camera_info = {
         "camera": "Fujifilm GFX 100 II",
     },
     "sony": {"make": "SONY", "model": "ILCE-7CM2", "camera": "SONY ILCE-7CM2"},
+    "dji": {"make": "DJI", "model": "Mini 4 Pro", "camera": "DJI FC8482"},
+    "leica": {
+        "make": "Leica",
+        "model": "M11",
+        "camera": "Summilux-M 50mm f/1.4 ASPH",
+    },
 }
 
 
@@ -27,7 +33,9 @@ def convert(dir, camera_preset, extension):
     make = camera_info[camera_preset]["make"]
     model = camera_info[camera_preset]["model"]
     camera = camera_info[camera_preset]["camera"]
-    command = f'exiftool -make="{make}" -model="{model}" -uniquecameramodel="{camera}" '
+    command = (
+        f'exiftool -m -make="{make}" -model="{model}" -uniquecameramodel="{camera}" '
+    )
     command += dir
     print(command)
     os.system(command)
