@@ -6,27 +6,25 @@
 
 ## 使用方法
 
-第一步，安装 ExifTool：
+1. 安装 ExifTool
 
 ```sh
 brew install exiftool
 ```
 
-第二步，安装本工具：
+2. 安装本工具
 
 ```sh
 pip install -e .
 ```
 
-或者使用 pipx：
+或者
 
 ```sh
 pipx install -e .
 ```
 
-使用方法：
-
-直接运行转换（默认使用富士预设）：
+直接运行（默认富士预设）：
 
 ```sh
 fuji-convert ./photos/
@@ -55,7 +53,7 @@ docker run --rm -v "$(pwd)":/data -w /data fujifilm-converter ./photos/
 
 处理完成后，同目录下得到修改过 EXIF 的 .dng 文件，可直接拖进 Lightroom。原始 RAW 文件移到同目录的 originals/ 文件夹。
 
-使用 Agent 时，直接把这个仓库的链接发给它，它就可以执行转换。
+让 Agent 使用：把仓库链接发给他，让他执行。
 
 ## 效果对比
 

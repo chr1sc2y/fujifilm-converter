@@ -4,25 +4,23 @@ This program converts RAW photos from any camera to Fujifilm style by modifying 
 
 ## Usage
 
-First, install ExifTool:
+1. Install ExifTool
 
 ```sh
 brew install exiftool
 ```
 
-Second, install this tool:
+2. Install this tool
 
 ```sh
 pip install -e .
 ```
 
-Or with pipx:
+Or
 
 ```sh
 pipx install -e .
 ```
-
-Usage:
 
 Run directly (defaults to Fujifilm preset):
 
@@ -53,7 +51,7 @@ docker run --rm -v "$(pwd)":/data -w /data fujifilm-converter ./photos/
 
 After processing, the modified .dng files (with updated EXIF) are ready to import into Lightroom. Original RAW files are moved to the originals/ folder in the same directory.
 
-When using an agent, simply pass the link to this repository and it can perform the conversion.
+Let the agent use: pass the repository link to it and have it execute.
 
 ## Effect Comparison
 
