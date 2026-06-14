@@ -1,0 +1,33 @@
+# Docker build context exclusions (keep image small and clean)
+.git
+.gitignore
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Docs / assets not needed at runtime
+*.md
+resources/
+images/
+screenshots/
+
+# Build / dev artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.env
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

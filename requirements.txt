@@ -1,0 +1,18 @@
+# Fujifilm Converter - Python dependencies
+# This project has ZERO runtime Python dependencies (pure stdlib).
+# All heavy lifting uses external CLI tools: exiftool + dnglab (or Adobe DNG Converter).
+
+# To install the CLI tool itself (recommended):
+#   pip install -e .
+#   # or for users: pip install git+https://github.com/zintrulcre/fujifilm-converter.git
+
+# After that you get the `fuji-convert` command globally (when in venv or via pipx).
+
+# System dependencies you still need (see README for easy one-liners):
+#   - exiftool (required)
+#   - dnglab (recommended for cross-platform RAW->DNG) or Adobe DNG Converter
+
+# Dev / optional (uncomment if you want to develop):
+# build
+# twine
+# pytest
