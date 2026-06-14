@@ -11,6 +11,10 @@ It now delegates to the clean packaged implementation.
 from __future__ import annotations
 
 import sys
+from pathlib import Path
+
+# Allow running directly from root: python legacy/process.py
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from fujifilm_converter.cli import main as cli_main
 

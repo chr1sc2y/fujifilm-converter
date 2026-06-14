@@ -37,9 +37,9 @@ RUN set -eux; \
 # 3. Install the fujifilm-converter package (provides `fuji-convert` command)
 WORKDIR /app
 COPY pyproject.toml ./
-COPY fujifilm_converter/ ./fujifilm_converter/
-# Also copy thin root shims for people who still do "python3 process.py"
-COPY process.py main.py fuji.py sony.py dji.py ./
+COPY src/ ./src/
+# Also copy legacy shims for people who still do "python3 process.py"
+COPY legacy/ ./legacy/
 RUN pip install --no-cache-dir -e .
 
 # 4. Default to the nice CLI entrypoint

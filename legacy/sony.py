@@ -5,6 +5,11 @@ Modern recommendation: use fuji-convert with appropriate preset or custom flags
 on DNGs. Kept only for backward compatibility.
 """
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
 from fujifilm_converter.exif import update_exif
 from fujifilm_converter.converters import ensure_dir
 import os

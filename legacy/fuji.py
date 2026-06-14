@@ -6,6 +6,10 @@ Modern usage is `fuji-convert` (or python3 process.py).
 """
 
 import sys
+from pathlib import Path
+
+# Allow running directly from root
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from fujifilm_converter.core import process_inputs
 from fujifilm_converter.cameras import get_camera

@@ -34,7 +34,7 @@ fuji-convert = "fujifilm_converter.cli:main"
 fujifilm-convert = "fujifilm_converter.cli:main"  # also available as the fuller name
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 
 [project.urls]
 Homepage = "https://github.com/zintrulcre/fujifilm-converter"

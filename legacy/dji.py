@@ -5,6 +5,11 @@ Modern recommendation: use fuji-convert. Kept for backward compatibility only.
 """
 
 import os
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
 from fujifilm_converter.exif import update_exif
 
 
