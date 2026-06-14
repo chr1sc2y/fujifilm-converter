@@ -7,7 +7,6 @@
 ## 使用方法
 
 1. 安装 ExifTool
-
 ```sh
 brew install exiftool
 ```
@@ -24,36 +23,22 @@ pip install -e .
 pipx install -e .
 ```
 
-直接运行（默认富士预设）：
+3. 直接运行
 
 ```sh
 fuji-convert ./photos/
 ```
 
-指定其他预设：
+处理完成后，同目录下会生成修改过 EXIF 的 .dng 文件，直接拖进 Lightroom。原始 RAW 文件会移到同目录的 originals/ 文件夹。
 
-```sh
-fuji-convert --preset hasselblad ./photos/
-fuji-convert --preset leica ./photos/
-```
+也可以直接诶把仓库链接丢给 agent 执行。
 
-检查环境：
-
-```sh
-fuji-convert --check
-```
-
-Docker 使用方式：
+### Docker 启动方式
 
 ```sh
 docker build -t fujifilm-converter .
-
 docker run --rm -v "$(pwd)":/data -w /data fujifilm-converter ./photos/
 ```
-
-处理完成后，同目录下得到修改过 EXIF 的 .dng 文件，可直接拖进 Lightroom。原始 RAW 文件移到同目录的 originals/ 文件夹。
-
-让 Agent 使用：把仓库链接发给他，让他执行。
 
 ## 效果对比
 
