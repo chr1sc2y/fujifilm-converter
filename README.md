@@ -26,12 +26,12 @@ pipx install -e .
 3. 直接运行
 
 ```sh
-fuji-convert ./photos/
+fuji-convert ~/Downloads/temp/ # the directory including your raw files
 ```
 
-处理完成后，同目录下会生成修改过 EXIF 的 .dng 文件，直接拖进 Lightroom。原始 RAW 文件会移到同目录的 originals/ 文件夹。
+处理完成后，同目录下会生成修改过 EXIF 的 .dng 文件，直接拖进 Lightroom 就可以选出富士的胶片模拟预设。原始 RAW 文件会移动到同目录的 originals/ 目录下。
 
-也可以直接诶把仓库链接丢给 agent 执行。
+也可以直接把仓库链接丢给 agent 执行。
 
 ### Docker 启动方式
 

@@ -1,6 +1,6 @@
 # Fujifilm Converter
 
-This program converts RAW photos from any camera to Fujifilm style by modifying EXIF so Lightroom can use the corresponding camera profiles and film simulations.
+This program converts RAW photos from any camera to Fujifilm style by modifying the EXIF information, allowing Lightroom to select Fujifilm film simulations.
 
 ## Usage
 
@@ -22,36 +22,22 @@ Or
 pipx install -e .
 ```
 
-Run directly (defaults to Fujifilm preset):
+3. Run directly
 
 ```sh
-fuji-convert ./photos/
+fuji-convert ~/Downloads/temp/ # the directory including your raw files
 ```
 
-Specify other preset:
+After processing, the .dng files with updated EXIF will be generated in the same directory. Drag them directly into Lightroom to select Fujifilm film simulation presets. The original RAW files will be moved to the originals/ directory in the same folder.
 
-```sh
-fuji-convert --preset hasselblad ./photos/
-fuji-convert --preset leica ./photos/
-```
+You can also directly pass the repository link to the agent to have it execute.
 
-Check environment:
-
-```sh
-fuji-convert --check
-```
-
-Docker usage:
+### Docker method
 
 ```sh
 docker build -t fujifilm-converter .
-
 docker run --rm -v "$(pwd)":/data -w /data fujifilm-converter ./photos/
 ```
-
-After processing, the modified .dng files (with updated EXIF) are ready to import into Lightroom. Original RAW files are moved to the originals/ folder in the same directory.
-
-Let the agent use: pass the repository link to it and have it execute.
 
 ## Effect Comparison
 
