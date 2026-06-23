@@ -1,9 +1,4 @@
-"""
-Modern CLI entry point.
-
-fuji-convert is now fully generic: it can output any camera EXIF you want
-(Fujifilm for film sims, Hasselblad, Leica, Sony, or completely custom).
-"""
+"""Modern CLI entry point for creating Lightroom-ready DNG metadata."""
 
 from __future__ import annotations
 
@@ -22,21 +17,19 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
             "Patch EXIF on RAW/DNG files so Lightroom thinks the photos were taken "
-            "with a different camera. This lets you use that camera's profiles and "
-            "film simulations (Fujifilm, Hasselblad, etc.) in Lightroom.\n\n"
+            "with a supported camera identity. By default this unlocks Fujifilm "
+            "film simulations in Lightroom when the matching Adobe profiles are installed.\n\n"
             "You almost never need to know exact model numbers. "
-            "Just say the brand you want."
+            "For normal use, just point this command at your RAW photo directory."
         ),
         epilog=(
             "Simple usage (recommended):\n"
-            "  fuji-convert ./photos/                    # default = Fujifilm\n"
+            "  fuji-convert ./photos/                    # default = Fujifilm; ./photos stores RAW photos\n"
             "  fuji-convert --preset fuji ./photos/\n"
             "  fuji-convert --preset fujifilm ./photos/  # many aliases work\n"
-            "  fuji-convert --preset hasselblad ./photos/\n"
-            "  fuji-convert --preset hassel ./photos/    # hassel, hassy, hasselblad all work\n"
             "  fuji-convert --list-presets\n\n"
             "Advanced (only if you really need something special):\n"
-            "  fuji-convert --make HASSELBLAD --model X2D --uniquecameramodel \"Hasselblad X2D 100C\" ./photos/"
+            "  fuji-convert --make FUJIFILM --model GFX100II --uniquecameramodel \"Fujifilm GFX 100 II\" ./photos/"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -58,13 +51,13 @@ def build_parser() -> argparse.ArgumentParser:
         "--preset",
         default="fuji",
         help="What camera to emulate. "
-             "You can use simple names: fuji, fujifilm, hasselblad, hassel, hassy, leica, sony, dji. "
+             "You can use simple names: fuji, fujifilm, sony, dji. "
              "Many natural aliases are accepted (default: fuji).",
     )
     parser.add_argument(
         "--make",
         help="ADVANCED: directly set EXIF Make (must be used together with --model and --uniquecameramodel). "
-             "For normal use just use --preset hasselblad or --preset fuji etc.",
+             "For normal use just use the default Fujifilm preset.",
     )
     parser.add_argument(
         "--model",
@@ -124,8 +117,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             print(f"  {p:12s} → {format_camera_info(cam)}")
         print("\nAliases that also work:")
         print("  fuji / fujifilm / fuji film / gfx     → Fujifilm")
-        print("  hasselblad / hassel / hassy / hass    → Hasselblad (哈苏)")
-        print("  (The resolver is very forgiving on purpose.)")
+        print("  (Unsupported brands are intentionally not listed.)")
         return 0
 
     if args.check:

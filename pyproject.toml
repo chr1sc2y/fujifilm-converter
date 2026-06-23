@@ -5,14 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fujifilm-converter"
 version = "0.4.0"
-description = "Patch EXIF on RAW/DNG files so Lightroom thinks they came from Fuji, Hasselblad, Leica or any custom camera. Unlock film simulations and camera profiles with any sensor."
+description = "Patch RAW/DNG metadata so Lightroom exposes Fujifilm film simulations for supported files."
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [
   { name = "fujifilm-converter contributors" }
 ]
-keywords = ["fujifilm", "hasselblad", "exif", "raw", "dng", "lightroom", "film-simulation", "photography", "camera", "exiftool"]
+keywords = ["fujifilm", "exif", "raw", "dng", "lightroom", "film-simulation", "photography", "camera", "exiftool"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",

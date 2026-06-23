@@ -75,7 +75,7 @@ def process_file(
     else:
         raise ValueError(f"Unsupported file type: {input_path}")
 
-    # Generic EXIF update — works for Fuji, Hasselblad, custom, anything
+    # EXIF update using a preset or explicit advanced camera identity.
     update_exif(
         [dng_path],
         preset=preset,

@@ -1,28 +1,25 @@
 """
 Camera presets for EXIF spoofing.
 
-This module contains a small number of **fixed, well-tested configurations**
-that are known to make Lightroom recognize the files as the target camera
-and surface the desired profiles / film simulations.
+This module contains a small number of **fixed configurations** for metadata
+patching. The Fujifilm preset is the recommended profile-unlock path.
 
 Users should **not** need to know exact model numbers or lenses.
 They just type a simple name like:
     --preset fuji
     --preset fujifilm
-    --preset hasselblad
-    --preset hassel
-    --preset hass
 
-The resolver below accepts many natural aliases for each brand.
+The resolver below accepts natural aliases for the supported presets.
 
-Only a handful of solid presets are provided. Adding a new one means
-picking good Make + UniqueCameraModel values that Lightroom understands.
+Only presets that should be shown as first-class CLI choices live here.
+Adding a new one means verifying that Lightroom actually exposes the
+intended profile set, not just that EXIF values can be written.
 """
 
 from __future__ import annotations
 
-# Fixed configurations. These values are chosen so Lightroom can directly
-# offer the camera's profiles/film simulations without the user knowing details.
+# Fixed configurations. Keep first-class presets conservative: a preset should
+# not be advertised unless the intended Lightroom behavior has been verified.
 CAMERAS: dict[str, dict[str, str]] = {
     "fuji": {
         "make": "FUJIFILM",
@@ -39,16 +36,6 @@ CAMERAS: dict[str, dict[str, str]] = {
         "model": "Mini 4 Pro",
         "camera": "DJI FC8482",
     },
-    "leica": {
-        "make": "Leica",
-        "model": "M11",
-        "camera": "Leica M11",   # body only - no specific lens
-    },
-    "hasselblad": {
-        "make": "HASSELBLAD",
-        "model": "H6D-100c",
-        "camera": "Hasselblad H6D-100c",
-    },
 }
 
 # Very forgiving aliases so users can type natural things.
@@ -64,17 +51,7 @@ ALIAS_TO_PRESET: dict[str, str] = {
     "gfx": "fuji",
     "fujifilm converter": "fuji",
 
-    # Hasselblad (哈苏) - the main request
-    "hasselblad": "hasselblad",
-    "hassel": "hasselblad",
-    "hasse": "hasselblad",
-    "hassy": "hasselblad",
-    "hblad": "hasselblad",
-    "hass": "hasselblad",
-    "哈苏": "hasselblad",   # allow Chinese input too
-
     # Others
-    "leica": "leica",
     "sony": "sony",
     "dji": "dji",
 }
@@ -86,7 +63,7 @@ def list_presets() -> list[str]:
 
 
 def _normalize_preset(name: str) -> str:
-    """Turn 'Hassel', 'Fujifilm', 'fuji film', 'hassy' etc. into a canonical key."""
+    """Turn 'Fujifilm', 'fuji film', etc. into a canonical key."""
     if not name:
         return "fuji"
 
@@ -118,7 +95,7 @@ def get_camera(
     Resolve to one of the fixed configurations.
 
     Normal usage (recommended):
-        get_camera("hasselblad") or get_camera("hassel") or get_camera("fujifilm")
+        get_camera("fuji") or get_camera("fujifilm")
 
     Advanced (power users who really know what they are doing):
         You can still pass explicit make/model/uniquecameramodel.
@@ -145,7 +122,7 @@ def get_camera(
         available = ", ".join(list_presets())
         raise ValueError(
             f"Unknown preset '{preset}'. "
-            f"Try one of: {available} (or aliases like hassel, fujifilm, hassy, etc.)"
+            f"Try one of: {available} (or aliases like fuji, fujifilm, gfx, etc.)"
         )
 
     return CAMERAS[canon].copy()

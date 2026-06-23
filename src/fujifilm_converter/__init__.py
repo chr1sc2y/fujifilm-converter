@@ -2,7 +2,7 @@
 fujifilm-converter
 
 Patch EXIF on any camera's RAW/DNG files so Lightroom sees them as coming
-from Fuji, Hasselblad, or any other camera you configure.
+from a Fujifilm profile-ready camera identity.
 
 Public API (for scripting):
     from fujifilm_converter.core import process_inputs, process_file
